@@ -57,6 +57,23 @@ h2{font-size:28px;margin:0 0 20px;font-weight:900}
 .join p{margin:0 0 22px;opacity:.85}
 .join .btn{background:var(--pink);color:#fff}
 footer{padding:20px 0 40px;color:var(--muted);font-size:14px;text-align:center}
+
+/* ===== اضافه‌شده: نکته‌ی هوش مصنوعی و بخش نظرات ===== */
+.fact.ai{border-right-color:var(--mint);margin-top:16px}
+.fact.ai .tag{color:var(--mint)}
+.cm{background:var(--surface);border-radius:22px;padding:26px;border-right:8px solid var(--blue)}
+.cm p.lead{margin:0 0 16px;color:var(--muted)}
+.cm label{display:block;font-weight:800;margin:14px 0 6px}
+.cm input[type=text],.cm textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:11px 14px}
+.cm textarea{min-height:130px;resize:vertical}
+.cm input:focus-visible,.cm textarea:focus-visible{outline:3px solid var(--pink);outline-offset:2px;border-color:transparent}
+.cm button.btn{border:0;cursor:pointer;font:inherit;font-weight:800;margin-top:16px}
+.cm button.btn[disabled]{opacity:.6;cursor:wait}
+.cm .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.cm .note{margin:12px 0 0;font-size:14px;color:var(--muted)}
+#cmStatus{margin:14px 0 0;font-weight:800;min-height:1.9em}
+#cmStatus.ok{color:var(--mint)}
+#cmStatus.err{color:var(--pink)}
 </style>
 </head>
 <body>
@@ -107,12 +124,38 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:14px;text-align:center}
     </section>
 
     <section>
+      <h2>آیا می‌دانید؟ (هوش مصنوعی)</h2>
+      <div class="fact ai">
+        <div class="tag">نکته‌ی هوش مصنوعی</div>
+        <h3>چت‌بات‌ها چطور جواب می‌دهند؟</h3>
+        <p>هوش مصنوعی‌های متنی مثل چت‌بات‌ها با خواندنِ حجم عظیمی از متن یاد گرفته‌اند که بعد از هر کلمه، چه کلمه‌ای محتمل‌تر است و جواب را کلمه‌به‌کلمه می‌سازند. برای همین گاهی جواب‌های غلط را هم با اطمینان می‌نویسند؛ پس اطلاعات مهم را حتماً از یک منبع دیگر هم چک کنید.</p>
+      </div>
+    </section>
+
+    <section>
       <h2>چرا رایان؟</h2>
       <ul class="list">
         <li>محتوای متنوع و منظم، بدون شلوغی بی‌دلیل</li>
         <li>توضیح ساده برای مبتدی‌ها و نکته‌های مفید برای حرفه‌ای‌ها</li>
         <li>اطلاعات به‌روز درباره هوش مصنوعی و تکنولوژی</li>
       </ul>
+    </section>
+
+    <section id="comments">
+      <h2>نظر شما</h2>
+      <div class="cm">
+        <p class="lead">نظر، پیشنهاد یا سؤال خود را بنویسید. پیام شما فقط برای مدیر سایت ارسال می‌شود و در سایت نمایش داده نمی‌شود.</p>
+        <form id="cmForm" novalidate>
+          <div class="hp" aria-hidden="true"><label>این قسمت را خالی بگذارید<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+          <label for="cmName">نام (اختیاری)</label>
+          <input type="text" id="cmName" name="name" maxlength="60" autocomplete="off">
+          <label for="cmMsg">پیام شما</label>
+          <textarea id="cmMsg" name="message" maxlength="1000" required></textarea>
+          <button class="btn" type="submit" id="cmBtn">ارسال نظر</button>
+          <p id="cmStatus" role="status" aria-live="polite"></p>
+        </form>
+        <p class="note">لطفاً شماره تلفن یا اطلاعات شخصی در پیام ننویسید.</p>
+      </div>
     </section>
 
     <div class="join">
@@ -132,6 +175,30 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:14px;text-align:center}
     s+='<i class="'+k+'" style="animation-delay:'+((i+r*12)*30)+'ms"></i>';
   }
   h.innerHTML=s;
+})();
+</script>
+<script>
+(function(){
+  var KEY='PUT_YOUR_ACCESS_KEY_HERE';
+  var f=document.getElementById('cmForm'),b=document.getElementById('cmBtn'),st=document.getElementById('cmStatus');
+  function say(t,c){st.textContent=t;st.className=c||''}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var msg=f.message.value.trim(),name=f.name.value.trim();
+    if(f.botcheck.value){return}
+    if(msg.length<2){say('لطفاً پیام خود را بنویسید.','err');return}
+    if(KEY==='PUT_YOUR_ACCESS_KEY_HERE'){say('بخش نظرات هنوز فعال نشده است.','err');return}
+    b.disabled=true;say('در حال ارسال…','');
+    fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({access_key:KEY,subject:'نظر جدید در سایت رایان',from_name:name||'ناشناس',name:name||'ناشناس',message:msg})
+    }).then(function(r){return r.json()}).then(function(d){
+      if(d&&d.success){say('ممنون! نظر شما ارسال شد. 💙','ok');f.reset()}
+      else{say('ارسال نشد. کمی بعد دوباره تلاش کنید.','err')}
+    }).catch(function(){say('ارسال نشد. اتصال اینترنت را بررسی کنید و دوباره تلاش کنید.','err')})
+    .then(function(){b.disabled=false});
+  });
 })();
 </script>
 </body>
