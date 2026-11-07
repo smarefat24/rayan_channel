@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2f5bff">
 <title>کانال رایان | فناوری، گیمینگ و هوش مصنوعی</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800;900&display=swap">
 <style>
 :root{
   --bg:#eef2f8; --surface:#ffffff; --ink:#14213d; --muted:#51607d;
@@ -18,7 +18,7 @@
 :root[data-theme="dark"]{--bg:#0e1426;--surface:#172039;--ink:#eef2fb;--muted:#a3b0cc;--blue:#6f8cff;--pink:#ff6b9d;--mint:#2dd4a8;--line:#2a3558;color-scheme:dark}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Vazirmatn",Tahoma,"Segoe UI",sans-serif;line-height:1.9;font-size:16px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,"Segoe UI",Roboto,"Noto Naskh Arabic",Arial,sans-serif;line-height:1.9;font-size:16px}
 .wrap{max-width:960px;margin:0 auto;padding:0 20px}
 header{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
 .logo{font-weight:900;font-size:20px}
@@ -27,12 +27,12 @@ header{display:flex;justify-content:space-between;align-items:center;padding:18p
 .btn:focus-visible,a:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
 .btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
 .hero{padding:48px 0 56px}
-.hero h1{font-size:clamp(40px,10vw,84px);line-height:1.15;margin:0 0 18px;font-weight:900;letter-spacing:-.5px}
+.hero h1{font-size:40px;line-height:1.15;margin:0 0 18px;font-weight:900;letter-spacing:-.5px}
 .hero p{font-size:18px;color:var(--muted);max-width:34em;margin:0 0 28px}
 .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .handle{direction:ltr;unicode-bidi:isolate;font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700}
 .pixels{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;margin-top:44px}
-.pixels i{aspect-ratio:1;border-radius:4px;background:var(--line);animation:pop .5s both}
+.pixels i{height:0;padding-bottom:100%;border-radius:4px;background:var(--line);animation:pop .5s both}
 .pixels i.b{background:var(--blue)}.pixels i.p{background:var(--pink)}.pixels i.m{background:var(--mint)}
 @keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
 @media (prefers-reduced-motion:reduce){.pixels i{animation:none}.btn{transition:none}}
@@ -74,6 +74,28 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:14px;text-align:center}
 #cmStatus{margin:14px 0 0;font-weight:800;min-height:1.9em}
 #cmStatus.ok{color:var(--mint)}
 #cmStatus.err{color:var(--pink)}
+
+/* ===== سازگاری با گوشی + انیمیشن ===== */
+@media(min-width:480px){.hero h1{font-size:56px}}
+@media(min-width:720px){.hero h1{font-size:84px}}
+.btn,.topic{-webkit-tap-highlight-color:transparent}
+@media (prefers-reduced-motion:no-preference){
+  @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(.62)}}
+  @keyframes ring{0%,100%{box-shadow:0 0 0 0 rgba(255,61,127,.55)}60%{box-shadow:0 0 0 14px rgba(255,61,127,0)}}
+  @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .logo{animation:up .6s ease both}
+  .hero h1{animation:up .7s .1s ease both}
+  .hero p{animation:up .7s .25s ease both}
+  .hero .cta{animation:up .7s .4s ease both}
+  .pixels i.b,.pixels i.p,.pixels i.m{animation:pop .5s both,breathe 3.2s ease-in-out infinite}
+  .topic{transition:transform .2s ease}
+  .topic:hover,.topic:active{transform:translateY(-5px)}
+  .topic h3{display:inline-block;animation:drift 4s ease-in-out infinite}
+  .join .btn{animation:ring 2.8s ease-out infinite}
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+  .rv.in{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
@@ -199,6 +221,19 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:14px;text-align:center}
     }).catch(function(){say('ارسال نشد. اتصال اینترنت را بررسی کنید و دوباره تلاش کنید.','err')})
     .then(function(){b.disabled=false});
   });
+})();
+</script>
+<script>
+(function(){
+  try{
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce||!('IntersectionObserver' in window))return;
+    var io=new IntersectionObserver(function(es){
+      for(var i=0;i<es.length;i++){if(es[i].isIntersecting){es[i].target.className+=' in';io.unobserve(es[i].target)}}
+    },{threshold:0.1});
+    var els=document.querySelectorAll('.topic,.fact,.list li,.cm,.join');
+    for(var j=0;j<els.length;j++){els[j].className+=' rv';io.observe(els[j])}
+  }catch(e){}
 })();
 </script>
 </body>
