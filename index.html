@@ -75,6 +75,11 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:14px;text-align:center}
 #cmStatus.ok{color:var(--mint)}
 #cmStatus.err{color:var(--pink)}
 
+/* ===== اصلاح اسکرول افقی در گوشی (اضافه‌شده) ===== */
+.cm{position:relative}
+.cm .hp{left:auto;right:0;top:0;opacity:0;pointer-events:none;clip-path:inset(50%)}
+html,body{max-width:100%;overflow-x:hidden}
+
 /* ===== سازگاری با گوشی + انیمیشن ===== */
 @media(min-width:480px){.hero h1{font-size:56px}}
 @media(min-width:720px){.hero h1{font-size:84px}}
