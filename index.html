@@ -3,64 +3,73 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#2f5bff">
-<title>کانال رایان | فناوری، گیمینگ و هوش مصنوعی</title>
+<meta name="theme-color" content="#0b1020">
+<title>رایان | دنیای دیجیتال به زبان ساده</title>
 <style>
-:root{
-  --bg:#eef2f8; --surface:#ffffff; --ink:#14213d; --muted:#51607d;
-  --blue:#2f5bff; --pink:#ff3d7f; --mint:#00b894; --line:#d5dcea;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#0e1426;--surface:#172039;--ink:#eef2fb;--muted:#a3b0cc;--blue:#6f8cff;--pink:#ff6b9d;--mint:#2dd4a8;--line:#2a3558;color-scheme:dark}
-}
-:root[data-theme="dark"]{--bg:#0e1426;--surface:#172039;--ink:#eef2fb;--muted:#a3b0cc;--blue:#6f8cff;--pink:#ff6b9d;--mint:#2dd4a8;--line:#2a3558;color-scheme:dark}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+:root{--bg:#0b1020;--surface:#141b33;--ink:#eef1ff;--muted:#a9b3d6;--blue:#8b9bff;--pink:#ff7ab6;--mint:#3ddcb0;--line:#2a3463;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,"Segoe UI",Roboto,"Noto Naskh Arabic",Arial,sans-serif;line-height:1.9;font-size:16px}
-.wrap{max-width:960px;margin:0 auto;padding:0 20px}
-header{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
-.logo{font-weight:900;font-size:20px}
-.btn{display:inline-block;text-decoration:none;font-weight:800;border-radius:14px;padding:12px 22px;background:var(--blue);color:#fff;transition:transform .15s}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{font-weight:900;font-size:21px}.logo b{color:var(--pink)}
+.btn{display:inline-block;text-decoration:none;font-weight:800;border-radius:14px;padding:11px 22px;background:var(--blue);color:#0b1020;transition:transform .15s;-webkit-tap-highlight-color:transparent}
 .btn:hover{transform:translateY(-2px)}
 .btn:focus-visible,a:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
-.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
-.hero{padding:48px 0 56px}
-.hero h1{font-size:40px;line-height:1.15;margin:0 0 18px;font-weight:900;letter-spacing:-.5px}
-.hero p{font-size:18px;color:var(--muted);max-width:34em;margin:0 0 28px}
-.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.hero{text-align:center;padding:40px 0 34px}
+.badge{display:inline-block;border:2px solid var(--line);border-radius:99px;padding:2px 16px;font-size:14px;font-weight:800;color:var(--muted)}
+.hero h1{font-size:36px;line-height:1.35;margin:20px 0 14px;font-weight:900}
+.gr{background:linear-gradient(90deg,var(--blue),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.hero p{font-size:18px;color:var(--muted);max-width:32em;margin:0 auto 26px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center}
 .handle{direction:ltr;unicode-bidi:isolate;font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700}
-.pixels{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;margin-top:44px}
-.pixels i{height:0;padding-bottom:100%;border-radius:4px;background:var(--line);animation:pop .5s both}
-.pixels i.b{background:var(--blue)}.pixels i.p{background:var(--pink)}.pixels i.m{background:var(--mint)}
-@keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
-@media (prefers-reduced-motion:reduce){.pixels i{animation:none}.btn{transition:none}}
-section{padding:36px 0}
-h2{font-size:28px;margin:0 0 20px;font-weight:900}
-.topics{display:grid;gap:16px}
-@media(min-width:720px){.topics{grid-template-columns:repeat(3,1fr)}}
-.topic{background:var(--surface);border-radius:22px;padding:26px;border-top:8px solid var(--blue)}
-.topic.g{border-color:var(--pink);border-radius:22px 22px 22px 4px}
-.topic.a{border-color:var(--mint);border-radius:4px 22px 22px 22px}
-.topic h3{margin:0 0 8px;font-size:22px}
-.topic p{margin:0;color:var(--muted)}
-.fact{background:var(--surface);border-radius:22px;padding:28px;border-right:8px solid var(--pink)}
-.fact h3{margin:0 0 12px;font-size:22px}
-.fact p{margin:0 0 10px;color:var(--muted)}
-.fact p:last-child{margin:0}
-.fact .tag{display:inline-block;font-size:14px;font-weight:800;color:var(--pink);margin-bottom:8px}
-.list{display:grid;gap:12px;padding:0;margin:0;list-style:none}
-.list li{background:var(--surface);border-right:5px solid var(--blue);padding:14px 18px;border-radius:12px}
-.join{background:var(--ink);color:var(--bg);border-radius:28px;padding:40px 24px;text-align:center;margin:24px 0 40px}
-.join h2{margin-bottom:8px}
-.join p{margin:0 0 22px;opacity:.85}
-.join .btn{background:var(--pink);color:#fff}
-footer{padding:20px 0 40px;color:var(--muted);font-size:14px;text-align:center}
+@media(min-width:720px){.hero h1{font-size:56px}}
+section{padding:30px 0}
+h2{font-size:26px;margin:0 0 18px;font-weight:900}
+.topics{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:720px){.topics{grid-template-columns:repeat(3,1fr);gap:16px}}
+.topic{background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:18px}
+.topic .ic{font-size:30px;line-height:1.2}
+.topic h3{margin:6px 0 4px;font-size:19px}
+.topic p{margin:0;color:var(--muted);font-size:15px;line-height:1.8}
+.facts{display:grid;gap:16px}
+@media(min-width:720px){.facts{grid-template-columns:1fr 1fr}}
+.fact{background:var(--surface);border-radius:22px;padding:24px;border-top:6px solid var(--pink)}
+.fact.ai{border-top-color:var(--mint)}
+.fact .tag{font-size:14px;font-weight:800;color:var(--pink)}.fact.ai .tag{color:var(--mint)}
+.fact h3{margin:4px 0 10px;font-size:21px}
+.fact p{margin:0 0 10px;color:var(--muted)}.fact p:last-child{margin:0}
+.steps{display:grid;gap:12px;padding:0;margin:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:14px;align-items:center;background:var(--surface);border-radius:16px;padding:14px 18px}
+.steps li::before{content:counter(s,persian);flex:none;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#0b1020;font-weight:900;display:grid;place-items:center}
+.card{background:var(--surface);border-radius:22px;padding:24px;border-right:8px solid var(--mint)}
+.card .lead{margin:0 0 14px;color:var(--muted)}
+.chips{display:grid;gap:10px;margin:0 0 16px}
+@media(min-width:560px){.chips{grid-template-columns:1fr 1fr}}
+.chip{display:flex;align-items:center;gap:12px;padding:12px 14px;border:2px solid var(--line);border-radius:16px;background:var(--bg);cursor:pointer;font-weight:700;position:relative}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip .em{font-size:24px;line-height:1}.chip .tx{flex:1}
+.chip .ck{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:#0b1020;font-weight:900;font-size:14px}
+.chip.on{border-color:var(--mint)}.chip.on .ck{background:var(--mint);border-color:var(--mint)}.chip.on .ck::before{content:"✓"}
+.card button.btn{border:0;cursor:pointer;font:inherit;font-weight:800}
+.card button.btn.ghost{border:2px solid var(--line);margin-inline-start:8px}
+#ps{margin:12px 0 0;font-weight:800;min-height:1.9em}#ps.err{color:var(--pink)}
+.res{display:grid;gap:14px;margin:0 0 12px;padding:0;list-style:none}
+.rt{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:6px}
+.rt .n{margin-inline-start:auto;color:var(--muted);font-weight:800;font-size:14px}
+.bar{height:14px;border-radius:99px;background:var(--bg);border:2px solid var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:var(--blue);transition:width .5s}
+.res li.me .bar i{background:var(--mint)}.res li.me .tx::after{content:" ✓ انتخاب شما";color:var(--muted);font-size:13px}
+#pth{margin:0 0 14px;font-weight:800;color:var(--mint)}
+.note{margin:12px 0 0;font-size:14px;color:var(--muted)}
+.join{background:linear-gradient(135deg,#1d2a66,#4a1f55);border-radius:28px;padding:38px 22px;text-align:center;margin:20px 0 36px}
+.join h2{margin-bottom:8px}.join p{margin:0 0 20px;color:var(--muted)}
+.join .btn{background:var(--pink);color:#0b1020}
+footer{padding:16px 0 40px;color:var(--muted);font-size:14px;text-align:center}
+@media(prefers-reduced-motion:no-preference){.hero>*{animation:up .6s both}.hero>*:nth-child(2){animation-delay:.08s}.hero>*:nth-child(3){animation-delay:.16s}.hero>*:nth-child(4){animation-delay:.24s}@keyframes up{from{opacity:0;transform:translateY(14px)}}}
 
-/* ===== اضافه‌شده: نکته‌ی هوش مصنوعی و بخش نظرات ===== */
-.fact.ai{border-right-color:var(--mint);margin-top:16px}
-.fact.ai .tag{color:var(--mint)}
+/* ===== بخش نظرات (بدون تغییر نسبت به سایت قبلی) ===== */
 .cm{background:var(--surface);border-radius:22px;padding:26px;border-right:8px solid var(--blue)}
 .cm p.lead{margin:0 0 16px;color:var(--muted)}
 .cm label{display:block;font-weight:800;margin:14px 0 6px}
@@ -74,181 +83,74 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:14px;text-align:center}
 #cmStatus{margin:14px 0 0;font-weight:800;min-height:1.9em}
 #cmStatus.ok{color:var(--mint)}
 #cmStatus.err{color:var(--pink)}
-
-/* ===== اصلاح اسکرول افقی در گوشی (اضافه‌شده) ===== */
 .cm{position:relative}
 .cm .hp{left:auto;right:0;top:0;opacity:0;pointer-events:none;clip-path:inset(50%)}
-html,body{max-width:100%;overflow-x:hidden}
 
-/* ===== سازگاری با گوشی + انیمیشن ===== */
-@media(min-width:480px){.hero h1{font-size:56px}}
-@media(min-width:720px){.hero h1{font-size:84px}}
-.btn,.topic{-webkit-tap-highlight-color:transparent}
-@media (prefers-reduced-motion:no-preference){
-  @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-  @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(.62)}}
-  @keyframes ring{0%,100%{box-shadow:0 0 0 0 rgba(255,61,127,.55)}60%{box-shadow:0 0 0 14px rgba(255,61,127,0)}}
-  @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-  .logo{animation:up .6s ease both}
-  .hero h1{animation:up .7s .1s ease both}
-  .hero p{animation:up .7s .25s ease both}
-  .hero .cta{animation:up .7s .4s ease both}
-  .pixels i.b,.pixels i.p,.pixels i.m{animation:pop .5s both,breathe 3.2s ease-in-out infinite}
-  .topic{transition:transform .2s ease}
-  .topic:hover,.topic:active{transform:translateY(-5px)}
-  .topic h3{display:inline-block;animation:drift 4s ease-in-out infinite}
-  .join .btn{animation:ring 2.8s ease-out infinite}
-  .rv{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
-  .rv.in{opacity:1;transform:none}
-}
-
-/* ===== انیمیشن‌های بیشتر + نظرسنجی ===== */
-.gr{background:linear-gradient(90deg,var(--blue),var(--pink),var(--mint),var(--blue));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
-.hero{position:relative}
-.orb{position:absolute;border-radius:50%;filter:blur(48px);opacity:.28;pointer-events:none;z-index:-1}
-.orb.o1{width:260px;height:260px;background:var(--pink);top:-30px;left:-60px}
-.orb.o2{width:300px;height:300px;background:var(--blue);bottom:10px;right:-80px}
-#sp{position:fixed;top:env(safe-area-inset-top,0px);right:0;left:0;height:4px;z-index:50;transform-origin:right;transform:scaleX(0);background:linear-gradient(90deg,var(--pink),var(--blue),var(--mint))}
-.mq{overflow:hidden;direction:ltr;border-top:2px solid var(--line);border-bottom:2px solid var(--line);padding:10px 0}
-.mq-t{display:flex;width:max-content}
-.mq-t span{padding:0 22px;font-weight:900;white-space:nowrap}
-.mq-t span::after{content:"✦";margin-inline-start:44px;color:var(--pink)}
-.btn{position:relative;overflow:hidden}
-.poll .opts{display:grid;gap:10px;margin:6px 0 4px}
-@media(min-width:560px){.poll .opts{grid-template-columns:1fr 1fr}}
-.cm .opt{display:flex;align-items:center;gap:12px;margin:0;padding:12px 16px;background:var(--bg);border:2px solid var(--line);border-radius:16px;cursor:pointer;font-weight:700;position:relative;transition:border-color .2s,background .2s,transform .2s}
-.cm .opt:hover{border-color:var(--blue);transform:translateY(-2px)}
-.cm .opt input{position:absolute;opacity:0;pointer-events:none}
-.opt .em{font-size:26px;display:inline-block;line-height:1}
-.opt .tx{flex:1}
-.opt .ck{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:15px;font-weight:900;color:#fff;transition:background .2s,border-color .2s}
-.opt input:checked ~ .ck{background:var(--mint);border-color:var(--mint)}
-.opt input:checked ~ .ck::before{content:"✓"}
-.opt input:focus-visible ~ .ck{outline:3px solid var(--pink);outline-offset:2px}
-.cm .opt:has(input:checked){border-color:var(--mint)}
-.cm .opt.dis{opacity:.8;cursor:default}
-.cm .opt.dis:hover{transform:none;border-color:var(--line)}
-#pollStatus{margin:14px 0 0;font-weight:800;min-height:1.9em}
-#pollStatus.ok{color:var(--mint)}
-#pollStatus.err{color:var(--pink)}
-.cf{position:fixed;z-index:60;pointer-events:none;font-size:22px;animation:fly 1s ease-out forwards}
-@keyframes fly{from{transform:translate(0,0) scale(.4);opacity:1}to{transform:translate(var(--dx),var(--dy)) scale(1.2) rotate(var(--r));opacity:0}}
-@media (prefers-reduced-motion:no-preference){
-  @keyframes gshift{from{background-position:0 0}to{background-position:-200% 0}}
-  @keyframes floaty{50%{transform:translate(30px,-24px) scale(1.12)}}
-  @keyframes mq{to{transform:translateX(-50%)}}
-  @keyframes shine{0%,60%{left:-60%}100%{left:130%}}
-  @keyframes wiggle{0%{transform:scale(1)}30%{transform:scale(1.35) rotate(-12deg)}60%{transform:scale(1.2) rotate(10deg)}100%{transform:scale(1)}}
-  @keyframes tick{from{transform:scale(0)}to{transform:scale(1)}}
-  .gr{animation:gshift 6s linear infinite}
-  .orb.o1{animation:floaty 9s ease-in-out infinite}
-  .orb.o2{animation:floaty 11s ease-in-out infinite reverse}
-  .mq-t{animation:mq 22s linear infinite}
-  .btn:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 3.5s ease-in-out infinite;pointer-events:none}
-  .opt input:checked ~ .em{animation:wiggle .5s ease}
-  .opt input:checked ~ .ck::before{animation:tick .25s ease}
-  .list li:nth-child(2){transition-delay:.12s}
-  .list li:nth-child(3){transition-delay:.24s}
-}
-.cm .btn.ghost{margin-inline-start:10px}
-#pollRes{margin-top:6px}
-.res{display:grid;gap:14px;margin:0;padding:0;list-style:none}
-.res .rt{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:6px}
-.res .rt .n{margin-inline-start:auto;color:var(--muted);font-weight:800;font-size:14px}
-.res .bar{height:14px;border-radius:99px;background:var(--bg);border:2px solid var(--line);overflow:hidden}
-.res .bar i{display:block;height:100%;width:0;border-radius:99px;background:var(--blue);transition:width 1s cubic-bezier(.2,.8,.2,1)}
-.res li.me .bar i{background:var(--mint)}
-.res li.me .tx::after{content:" ✓ انتخاب شما";color:var(--muted);font-size:13px;font-weight:700}
-@media (prefers-reduced-motion:reduce){.res .bar i{transition:none}}
 </style>
 </head>
 <body>
-<div id="sp" aria-hidden="true"></div>
 <div class="wrap">
   <header>
-    <div class="logo">رایان</div>
+    <div class="logo">رایا<b>ن</b></div>
     <a class="btn ghost" href="https://eitaa.com/rayanchannell" target="_blank" rel="noopener">عضویت در ایتا</a>
   </header>
-
   <main>
     <div class="hero">
-      <span class="orb o1" aria-hidden="true"></span><span class="orb o2" aria-hidden="true"></span>
-      <h1>دنیای فناوری و گیمینگ،<br>هر روز در <span class="gr">رایان</span></h1>
-      <p>کانال رایان در ایتا؛ اخبار و آموزش تکنولوژی، دنیای بازی‌ها و هوش مصنوعی، به زبان ساده و کاربردی.</p>
-      <div class="cta">
-        <a class="btn" href="https://eitaa.com/rayanchannell" target="_blank" rel="noopener">ورود به کانال</a>
-        <span class="handle">@rayanchannell</span>
-      </div>
-      <div class="pixels" aria-hidden="true" id="px"></div>
+      <span class="badge">کانال ایتا · <span class="handle">@rayanchannell</span></span>
+      <h1>تکنولوژی، بازی و هوش مصنوعی،<br><span class="gr">ساده و کاربردی</span></h1>
+      <p>رایان هر روز نکته، خبر و آموزش‌های کوتاه از دنیای دیجیتال برایتان می‌آورد؛ بدون پیچیدگی و بدون وقت‌تلف‌کردن.</p>
+      <div class="cta"><a class="btn" href="https://eitaa.com/rayanchannell" target="_blank" rel="noopener">ورود به کانال</a></div>
     </div>
 
-    <div class="mq" aria-hidden="true"><div class="mq-t" id="mq"></div></div>
-
     <section>
-      <h2>در رایان چه می‌خوانید؟</h2>
-      <div class="topics">
-        <div class="topic">
-          <h3>فناوری</h3>
-          <p>گجت‌ها، نرم‌افزارها، موبایل و کامپیوتر و هر چیزی که دنیای دیجیتال را می‌سازد.</p>
-        </div>
-        <div class="topic g">
-          <h3>گیمینگ</h3>
-          <p>اخبار بازی‌ها، معرفی عنوان‌های جدید، سخت‌افزار گیمینگ و نکته‌های بازی.</p>
-        </div>
-        <div class="topic a">
-          <h3>هوش مصنوعی</h3>
-          <p>ابزارهای تازه، آموزش استفاده و تحلیل مسیر پیشرفت هوش مصنوعی.</p>
-        </div>
-      </div>
+      <h2>توی رایان چی پیدا می‌کنید؟</h2>
+      <div class="topics"><div class="topic"><div class="ic" aria-hidden="true">💻</div><h3>فناوری</h3><p>گجت، موبایل، کامپیوتر و هر چیزی که دنیای دیجیتال را می‌سازد.</p></div><div class="topic"><div class="ic" aria-hidden="true">🎮</div><h3>گیمینگ</h3><p>خبر بازی‌ها، معرفی عنوان‌های تازه و نکته‌های سخت‌افزار گیمینگ.</p></div><div class="topic"><div class="ic" aria-hidden="true">🤖</div><h3>هوش مصنوعی</h3><p>ابزارهای جدید و آموزش استفاده‌ی درست و کاربردی از آن‌ها.</p></div><div class="topic"><div class="ic" aria-hidden="true">🚁</div><h3>پهپادها</h3><p>آشنایی با انواع پهپاد، کاربردها و تازه‌های این دنیا.</p></div><div class="topic"><div class="ic" aria-hidden="true">🖼️</div><h3>والپیپر</h3><p>تصویر زمینه‌های خوش‌رنگ برای گوشی و کامپیوتر شما.</p></div><div class="topic"><div class="ic" aria-hidden="true">😂</div><h3>طنز کامپیوتری</h3><p>کمی خنده از دنیای برنامه‌نویس‌ها و کامپیوتر.</p></div></div>
     </section>
 
     <section>
-      <h2>آیا می‌دانید؟</h2>
-      <div class="fact">
-        <div class="tag">نکته امروز</div>
-        <h3>کامپیوتر چطور کار می‌کند؟</h3>
-        <p>هر کامپیوتر در پایه از سه کار ساده تشکیل شده: ورودی گرفتن، پردازش کردن و خروجی دادن. شما با صفحه‌کلید یا ماوس دستور می‌دهید، پردازنده (CPU) آن را اجرا می‌کند و نتیجه روی صفحه نمایش می‌آید.</p>
-        <p>همه اطلاعات در کامپیوتر به صورت صفر و یک ذخیره می‌شود. ترانزیستورهای بسیار ریز مثل کلید برق عمل می‌کنند: روشن یعنی یک و خاموش یعنی صفر. در پردازنده‌های امروزی میلیاردها ترانزیستور وجود دارد.</p>
-        <p>حافظه رم (RAM) کارهای در حال اجرا را موقت نگه می‌دارد تا پردازنده سریع به آن‌ها برسد، و حافظه ذخیره‌سازی (SSD یا هارد) فایل‌ها را برای همیشه نگه می‌دارد. با خاموش شدن کامپیوتر، رم خالی می‌شود ولی SSD اطلاعات را نگه می‌دارد.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>آیا می‌دانید؟ (هوش مصنوعی)</h2>
-      <div class="fact ai">
-        <div class="tag">نکته‌ی هوش مصنوعی</div>
-        <h3>چت‌بات‌ها چطور جواب می‌دهند؟</h3>
-        <p>هوش مصنوعی‌های متنی مثل چت‌بات‌ها با خواندنِ حجم عظیمی از متن یاد گرفته‌اند که بعد از هر کلمه، چه کلمه‌ای محتمل‌تر است و جواب را کلمه‌به‌کلمه می‌سازند. برای همین گاهی جواب‌های غلط را هم با اطمینان می‌نویسند؛ پس اطلاعات مهم را حتماً از یک منبع دیگر هم چک کنید.</p>
+      <h2>می‌دانستید؟</h2>
+      <div class="facts">
+        <div class="fact">
+          <div class="tag">نکته‌ی امروز</div>
+          <h3>وای‌فای چطور کار می‌کند؟</h3>
+          <p>وای‌فای داده‌ها را به موج رادیویی تبدیل می‌کند و بین گوشی یا لپ‌تاپ و روتر رد و بدل می‌کند. روتر هم با مودم به اینترنت وصل است.</p>
+          <p>باند ۵ گیگاهرتز سریع‌تر است ولی برد کمتری دارد و دیوار آن را بیشتر ضعیف می‌کند؛ باند ۲٫۴ گیگاهرتز برد بیشتری دارد ولی کندتر است.</p>
+        </div>
+        <div class="fact ai">
+          <div class="tag">نکته‌ی هوش مصنوعی</div>
+          <h3>چرا گاهی اشتباه می‌کند؟</h3>
+          <p>چت‌بات‌ها جواب را از جایی «پیدا» نمی‌کنند؛ کلمه به کلمه حدس می‌زنند چه چیزی بعدی محتمل‌تر است. برای همین گاهی با اطمینان کامل جواب غلط می‌دهند.</p>
+          <p>اگر موضوع مهم است، جواب را از یک منبع معتبر دوباره بررسی کنید.</p>
+        </div>
       </div>
     </section>
 
     <section>
       <h2>چرا رایان؟</h2>
-      <ul class="list">
-        <li>محتوای متنوع و منظم، بدون شلوغی بی‌دلیل</li>
-        <li>توضیح ساده برای مبتدی‌ها و نکته‌های مفید برای حرفه‌ای‌ها</li>
-        <li>اطلاعات به‌روز درباره هوش مصنوعی و تکنولوژی</li>
-      </ul>
+      <ol class="steps">
+        <li>مطالب کوتاه و منظم؛ بدون شلوغی و حاشیه</li>
+        <li>توضیح ساده برای مبتدی‌ها و نکته‌ی جدید برای حرفه‌ای‌ها</li>
+        <li>اخبار و ابزارهای تازه‌ی هوش مصنوعی و فناوری</li>
+      </ol>
     </section>
 
     <section id="poll">
       <h2>نظرسنجی</h2>
-      <div class="cm poll">
-        <p class="lead">چه نوع پست‌هایی بهتر است در کانال و سایت رایان به اشتراک گذاشته شود؟ (می‌توانید چند مورد انتخاب کنید)</p>
-        <form id="pollForm" novalidate>
-          <div class="opts" role="group" aria-label="نوع پست‌ها">
-          <label class="opt"><input type="checkbox" name="opt" value="آیا می‌دانید"><span class="em" aria-hidden="true">💡</span><span class="tx">آیا می‌دانید</span><span class="ck" aria-hidden="true"></span></label>
-          <label class="opt"><input type="checkbox" name="opt" value="پهپادها"><span class="em" aria-hidden="true">🚁</span><span class="tx">پهپادها</span><span class="ck" aria-hidden="true"></span></label>
-          <label class="opt"><input type="checkbox" name="opt" value="والپیپر"><span class="em" aria-hidden="true">🖼️</span><span class="tx">والپیپر</span><span class="ck" aria-hidden="true"></span></label>
-          <label class="opt"><input type="checkbox" name="opt" value="طنز کامپیوتری"><span class="em" aria-hidden="true">😂</span><span class="tx">طنز کامپیوتری</span><span class="ck" aria-hidden="true"></span></label>
-          <label class="opt"><input type="checkbox" name="opt" value="سایت‌های جالب"><span class="em" aria-hidden="true">🌐</span><span class="tx">سایت‌های جالب</span><span class="ck" aria-hidden="true"></span></label>
-          <label class="opt"><input type="checkbox" name="opt" value="سوالات روزمره کامپیوتری"><span class="em" aria-hidden="true">❓</span><span class="tx">سوالات روزمره کامپیوتری</span><span class="ck" aria-hidden="true"></span></label>
-          </div>
-          <button class="btn" type="submit" id="pollBtn">ثبت نظر</button>
-          <button class="btn ghost" type="button" id="pollView">فقط نتایج را ببینم</button>
-          <p id="pollStatus" role="status" aria-live="polite"></p>
+      <div class="card">
+        <p class="lead">دوست دارید چه پست‌هایی بیشتر در رایان ببینید؟ (چند مورد را می‌توانید انتخاب کنید)</p>
+        <form id="pf" novalidate>
+          <div class="chips" id="pg" role="group" aria-label="نوع پست‌ها"></div>
+          <button class="btn" type="submit">ثبت رأی</button>
+          <button class="btn ghost" type="button" id="pv">فقط نتایج را ببینم</button>
         </form>
-        <div id="pollRes" hidden></div>
+        <div id="pr" hidden>
+          <p id="pth" hidden>✓ رأی شما ثبت شد؛ ممنون! 💙</p>
+          <ul class="res" id="rl"></ul>
+          <p class="note" id="pt"></p>
+          <p class="note">درصدها سهم هر گزینه از کل رأی‌هاست.</p>
+          <button class="btn ghost" type="button" id="pback" style="margin:12px 0 0">بازگشت و رأی دادن</button>
+        </div>
+        <p id="ps" role="status" aria-live="polite"></p>
       </div>
     </section>
 
@@ -270,22 +172,94 @@ html,body{max-width:100%;overflow-x:hidden}
     </section>
 
     <div class="join">
-      <h2>همین حالا به رایان بپیوندید</h2>
+      <h2>به رایان بپیوندید</h2>
       <p>کانال را در ایتا باز کنید و عضو شوید.</p>
       <a class="btn" href="https://eitaa.com/rayanchannell" target="_blank" rel="noopener">عضویت در کانال</a>
     </div>
   </main>
-
   <footer>کانال رایان در ایتا · <span class="handle">@rayanchannell</span></footer>
 </div>
 <script>
 (function(){
-  var c=['','b','','p','','m','','b','p','','m',''],h=document.getElementById('px'),s='';
-  for(var r=0;r<2;r++)for(var i=0;i<12;i++){
-    var k=c[(i*(r+2)+r*5)%12];
-    s+='<i class="'+k+'" style="animation-delay:'+((i+r*12)*30)+'ms"></i>';
-  }
-  h.innerHTML=s;
+var O=['آیا می‌دانید','پهپادها','والپیپر','طنز کامپیوتری','سایت‌های جالب','سوالات روزمره کامپیوتری'],
+E=['💡','🚁','🖼️','😂','🌐','❓'],NS='rayan2poll',N=O.length,
+S=[{g:function(k){return 'https://abacus.jasoncameron.dev/get/'+NS+'/'+k},h:function(k){return 'https://abacus.jasoncameron.dev/hit/'+NS+'/'+k},v:function(d){return +d.value}},
+   {g:function(k){return 'https://api.counterapi.dev/v1/'+NS+'/'+k},h:function(k){return 'https://api.counterapi.dev/v1/'+NS+'/'+k+'/up'},v:function(d){return +d.count}}];
+function $(i){return document.getElementById(i)}
+function ld(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function fa(x){return Number(x).toLocaleString('fa-IR')}
+var form=$('pf'),box=$('pg'),res=$('pr'),st=$('ps'),rl=$('rl');
+function say(t,c){st.textContent=t;st.className=c||''}
+var counts=ld('r2c');if(!counts||counts.length!==N){counts=[];for(var z=0;z<N;z++)counts.push(0)}
+var mine=ld('r2v'),pend=ld('r2p')||[];
+// گزینه‌ها
+O.forEach(function(t,i){
+  var l=document.createElement('label');l.className='chip';
+  l.innerHTML='<input type="checkbox" value="'+i+'"><span class="em" aria-hidden="true">'+E[i]+'</span><span class="tx">'+t+'</span><span class="ck" aria-hidden="true"></span>';
+  box.appendChild(l);
+  l.firstChild.addEventListener('change',function(){l.classList.toggle('on',this.checked)});
+});
+var rows=O.map(function(t,i){
+  var li=document.createElement('li');
+  li.innerHTML='<div class="rt"><span aria-hidden="true">'+E[i]+'</span><span class="tx">'+t+'</span><span class="n"></span></div><div class="bar"><i></i></div>';
+  rl.appendChild(li);return li;
+});
+function render(){
+  var s=0;counts.forEach(function(c){s+=c});
+  rows.forEach(function(li,i){
+    var p=s?Math.round(counts[i]*100/s):0;
+    li.querySelector('.n').textContent=fa(p)+'٪ · '+fa(counts[i])+' رأی';
+    li.querySelector('.bar i').style.width=p+'%';
+    li.className=(mine&&mine.indexOf(i)>-1)?'me':'';
+  });
+  $('pt').textContent='مجموع رأی‌ها: '+fa(s);
+  $('pth').hidden=!mine;$('pback').hidden=!!mine;
+}
+function showRes(){form.hidden=true;res.hidden=false;render()}
+// درخواست به شمارنده‌ها: هرگز خطا نمی‌دهد، بعد از ۵ ثانیه رها می‌شود
+function rq(url,vf,isGet){
+  return new Promise(function(ok){
+    var c=window.AbortController?new AbortController():null,
+        t=setTimeout(function(){if(c)c.abort();ok(null)},5000);
+    fetch(url,c?{signal:c.signal}:{}).then(function(r){
+      if(!r.ok){clearTimeout(t);ok(isGet&&r.status<500?0:null);return}
+      return r.json().then(function(d){clearTimeout(t);var x=vf(d);ok(isFinite(x)?x:null)});
+    }).catch(function(){clearTimeout(t);ok(null)});
+  });
+}
+// هر دو سرویس هم‌زمان؛ بیشترین مقدار معتبر برمی‌گردد
+function cnt(i,hit){
+  return Promise.all(S.map(function(s){return rq((hit?s.h:s.g)('o'+i),s.v,!hit)})).then(function(a){
+    var m=null;a.forEach(function(x){if(x!==null&&(m===null||x>m))m=x});return m;
+  });
+}
+function flush(){
+  return Promise.all(pend.slice().map(function(i){
+    return cnt(i,true).then(function(m){if(m!==null){pend.splice(pend.indexOf(i),1);counts[i]=m}});
+  })).then(function(){sv('r2p',pend);sv('r2c',counts);render()});
+}
+function refresh(){
+  say('در حال به‌روزرسانی…');
+  return Promise.all(O.map(function(t,i){return cnt(i,false)})).then(function(a){
+    var ok=0;
+    a.forEach(function(m,i){if(m!==null){ok++;counts[i]=m+(pend.indexOf(i)>-1?1:0)}});
+    if(ok){sv('r2c',counts);render();say('')}
+    else say('اتصال به شمارنده برقرار نشد؛ آخرین نتایج ذخیره‌شده نمایش داده شد.','err');
+  });
+}
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var v=[];Array.prototype.forEach.call(box.querySelectorAll('input'),function(x){if(x.checked)v.push(+x.value)});
+  if(!v.length){say('لطفاً حداقل یک مورد را انتخاب کنید.','err');return}
+  mine=v;sv('r2v',v);pend=v.slice();sv('r2p',pend);
+  v.forEach(function(i){counts[i]+=1});sv('r2c',counts);
+  say('');showRes();             // نتیجه فوراً نمایش داده می‌شود
+  flush().then(refresh);         // ارسال به شمارنده در پس‌زمینه
+});
+$('pv').addEventListener('click',function(){say('');showRes();refresh()});
+$('pback').addEventListener('click',function(){res.hidden=true;form.hidden=false;say('')});
+if(mine){showRes();(pend.length?flush():Promise.resolve()).then(refresh)}
 })();
 </script>
 <script>
@@ -309,115 +283,6 @@ html,body{max-width:100%;overflow-x:hidden}
       else{say('ارسال نشد. کمی بعد دوباره تلاش کنید.','err')}
     }).catch(function(){say('ارسال نشد. اتصال اینترنت را بررسی کنید و دوباره تلاش کنید.','err')})
     .then(function(){b.disabled=false});
-  });
-})();
-</script>
-<script>
-(function(){
-  try{
-    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduce||!('IntersectionObserver' in window))return;
-    var io=new IntersectionObserver(function(es){
-      for(var i=0;i<es.length;i++){if(es[i].isIntersecting){es[i].target.className+=' in';io.unobserve(es[i].target)}}
-    },{threshold:0.1});
-    var els=document.querySelectorAll('.topic,.fact,.list li,.cm,.join');
-    for(var j=0;j<els.length;j++){els[j].className+=' rv';io.observe(els[j])}
-  }catch(e){}
-})();
-</script>
-<script>
-(function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var words=['فناوری','گیمینگ','هوش مصنوعی','پهپادها','والپیپر','طنز کامپیوتری','سایت‌های جالب'],mq=document.getElementById('mq');
-  if(mq){var h='';for(var k=0;k<4;k++)for(var i=0;i<words.length;i++)h+='<span>'+words[i]+'</span>';mq.innerHTML=h}
-  var sp=document.getElementById('sp');
-  if(sp&&!reduce){
-    var busy=false;
-    var upd=function(){var d=document.documentElement,m=d.scrollHeight-d.clientHeight;sp.style.transform='scaleX('+(m>0?Math.min(1,window.scrollY/m):0)+')';busy=false};
-    window.addEventListener('scroll',function(){if(!busy){busy=true;requestAnimationFrame(upd)}},{passive:true});
-    upd();
-  }
-  var f=document.getElementById('pollForm');
-  if(!f)return;
-  var st=document.getElementById('pollStatus'),b=document.getElementById('pollBtn'),vb=document.getElementById('pollView'),
-      res=document.getElementById('pollRes'),boxes=f.querySelectorAll('input[name=opt]'),
-      SK='rayanPoll2',API='https://abacus.jasoncameron.dev/',NS='rayanchannell-poll2',done=false,em=[],n=boxes.length;
-  for(var q=0;q<n;q++)em.push(boxes[q].parentNode.querySelector('.em').textContent);
-  function say(t,c){st.textContent=t;st.className=c||''}
-  function fa(x){return Number(x).toLocaleString('fa-IR')}
-  function call(op,key){
-    return fetch(API+op+'/'+NS+'/'+key).then(function(r){
-      if(!r.ok){if(op==='get')return 0;throw new Error('http')}
-      return r.json();
-    }).then(function(d){return typeof d==='number'?d:(+d.value||0)});
-  }
-  function burst(el){
-    if(reduce)return;
-    var r=el.getBoundingClientRect(),e=['💙','💗','✨','🎮','🤖','🚁'];
-    for(var i=0;i<16;i++){
-      var s=document.createElement('span'),a=Math.random()*Math.PI*2,d=70+Math.random()*90;
-      s.className='cf';s.textContent=e[i%e.length];
-      s.style.left=(r.left+r.width/2)+'px';s.style.top=(r.top+r.height/2)+'px';
-      s.style.setProperty('--dx',Math.cos(a)*d+'px');s.style.setProperty('--dy',(Math.sin(a)*d-40)+'px');s.style.setProperty('--r',(Math.random()*360-180)+'deg');
-      document.body.appendChild(s);
-      (function(x){setTimeout(function(){if(x.parentNode)x.parentNode.removeChild(x)},1100)})(s);
-    }
-  }
-  function show(c,voters,mine){
-    var h='';
-    for(var i=0;i<n;i++){
-      var p=voters>0?Math.min(100,Math.round(c[i]*100/voters)):0;
-      h+='<li'+(mine.indexOf(boxes[i].value)>-1?' class="me"':'')+'><div class="rt"><span aria-hidden="true">'+em[i]+'</span><span class="tx">'+boxes[i].value+'</span><span class="n">'+fa(p)+'٪ · '+fa(c[i])+' رأی</span></div><div class="bar" role="img" aria-label="'+fa(p)+' درصد"><i data-w="'+p+'"></i></div></li>';
-    }
-    res.innerHTML='<ul class="res">'+h+'</ul><p class="note">تعداد شرکت‌کنندگان: '+fa(voters)+' نفر. هر نفر می‌تواند چند مورد را انتخاب کند.</p>'+(done?'':'<button class="btn ghost" type="button" id="pollBack" style="margin-inline-start:0">بازگشت و رأی دادن</button>');
-    f.hidden=true;res.hidden=false;
-    var bk=document.getElementById('pollBack');
-    if(bk)bk.addEventListener('click',function(){res.hidden=true;f.hidden=false;say('')});
-    setTimeout(function(){
-      var bars=res.querySelectorAll('.bar i');
-      for(var j=0;j<bars.length;j++)bars[j].style.width=bars[j].getAttribute('data-w')+'%';
-    },60);
-  }
-  function fetchAll(){
-    var ps=[call('get','voters')];
-    for(var i=0;i<n;i++)ps.push(call('get','opt'+i));
-    return Promise.all(ps);
-  }
-  function view(mine){
-    say('در حال دریافت نتایج…','');
-    return fetchAll().then(function(a){show(a.slice(1),a[0],mine);say('')})
-      .catch(function(){say('نتایج الان در دسترس نیست. کمی بعد دوباره تلاش کنید.','err')});
-  }
-  function lock(vals){
-    done=true;
-    for(var i=0;i<n;i++){if(vals.indexOf(boxes[i].value)>-1)boxes[i].checked=true;boxes[i].disabled=true;boxes[i].parentNode.className+=' dis'}
-    b.disabled=true;b.textContent='نظر شما ثبت شد';
-  }
-  var mine=null;
-  try{var old=localStorage.getItem(SK);if(old)mine=JSON.parse(old)}catch(e){}
-  if(mine){lock(mine);view(mine)}
-  vb.addEventListener('click',function(){vb.disabled=true;view([]).then(function(){vb.disabled=false})});
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(done)return;
-    var vals=[];
-    for(var i=0;i<n;i++){if(boxes[i].checked)vals.push(boxes[i].value)}
-    if(!vals.length){say('لطفاً حداقل یک مورد را انتخاب کنید.','err');return}
-    b.disabled=true;vb.disabled=true;say('در حال ثبت…','');
-    var voters=0,ps=[];
-    for(var i=0;i<n;i++){
-      var pick=vals.indexOf(boxes[i].value)>-1;
-      ps.push(pick?call('hit','opt'+i):call('get','opt'+i).catch(function(){return 0}));
-    }
-    Promise.all(ps).then(function(c){
-      return call('hit','voters').then(function(v){voters=v;return c});
-    }).then(function(c){
-      try{localStorage.setItem(SK,JSON.stringify(vals))}catch(x){}
-      done=true;burst(b);show(c,voters,vals);
-    }).catch(function(){
-      say('ثبت نشد. اتصال اینترنت را بررسی کنید و دوباره تلاش کنید.','err');
-      b.disabled=false;vb.disabled=false;
-    });
   });
 })();
 </script>
