@@ -184,7 +184,8 @@ footer{padding:16px 0 40px;color:var(--muted);font-size:14px;text-align:center}
 var O=['آیا می‌دانید','پهپادها','والپیپر','طنز کامپیوتری','سایت‌های جالب','سوالات روزمره کامپیوتری'],
 E=['💡','🚁','🖼️','😂','🌐','❓'],NS='rayan2poll',N=O.length,
 S=[{g:function(k){return 'https://abacus.jasoncameron.dev/get/'+NS+'/'+k},h:function(k){return 'https://abacus.jasoncameron.dev/hit/'+NS+'/'+k},v:function(d){return +d.value}},
-   {g:function(k){return 'https://api.counterapi.dev/v1/'+NS+'/'+k},h:function(k){return 'https://api.counterapi.dev/v1/'+NS+'/'+k+'/up'},v:function(d){return +d.count}}];
+   {g:function(k){return 'https://api.counterapi.dev/v1/'+NS+'/'+k},h:function(k){return 'https://api.counterapi.dev/v1/'+NS+'/'+k+'/up'},v:function(d){return +d.count}},
+   {g:function(k){return 'https://countapi.mileshilliard.com/api/v1/get/'+NS+'-'+k},h:function(k){return 'https://countapi.mileshilliard.com/api/v1/hit/'+NS+'-'+k},v:function(d){return +d.value}}];
 function $(i){return document.getElementById(i)}
 function ld(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
 function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
