@@ -101,9 +101,69 @@ html,body{max-width:100%;overflow-x:hidden}
   .rv{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
   .rv.in{opacity:1;transform:none}
 }
+
+/* ===== انیمیشن‌های بیشتر + نظرسنجی ===== */
+.gr{background:linear-gradient(90deg,var(--blue),var(--pink),var(--mint),var(--blue));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.hero{position:relative}
+.orb{position:absolute;border-radius:50%;filter:blur(48px);opacity:.28;pointer-events:none;z-index:-1}
+.orb.o1{width:260px;height:260px;background:var(--pink);top:-30px;left:-60px}
+.orb.o2{width:300px;height:300px;background:var(--blue);bottom:10px;right:-80px}
+#sp{position:fixed;top:env(safe-area-inset-top,0px);right:0;left:0;height:4px;z-index:50;transform-origin:right;transform:scaleX(0);background:linear-gradient(90deg,var(--pink),var(--blue),var(--mint))}
+.mq{overflow:hidden;direction:ltr;border-top:2px solid var(--line);border-bottom:2px solid var(--line);padding:10px 0}
+.mq-t{display:flex;width:max-content}
+.mq-t span{padding:0 22px;font-weight:900;white-space:nowrap}
+.mq-t span::after{content:"✦";margin-inline-start:44px;color:var(--pink)}
+.btn{position:relative;overflow:hidden}
+.poll .opts{display:grid;gap:10px;margin:6px 0 4px}
+@media(min-width:560px){.poll .opts{grid-template-columns:1fr 1fr}}
+.cm .opt{display:flex;align-items:center;gap:12px;margin:0;padding:12px 16px;background:var(--bg);border:2px solid var(--line);border-radius:16px;cursor:pointer;font-weight:700;position:relative;transition:border-color .2s,background .2s,transform .2s}
+.cm .opt:hover{border-color:var(--blue);transform:translateY(-2px)}
+.cm .opt input{position:absolute;opacity:0;pointer-events:none}
+.opt .em{font-size:26px;display:inline-block;line-height:1}
+.opt .tx{flex:1}
+.opt .ck{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:15px;font-weight:900;color:#fff;transition:background .2s,border-color .2s}
+.opt input:checked ~ .ck{background:var(--mint);border-color:var(--mint)}
+.opt input:checked ~ .ck::before{content:"✓"}
+.opt input:focus-visible ~ .ck{outline:3px solid var(--pink);outline-offset:2px}
+.cm .opt:has(input:checked){border-color:var(--mint)}
+.cm .opt.dis{opacity:.8;cursor:default}
+.cm .opt.dis:hover{transform:none;border-color:var(--line)}
+#pollStatus{margin:14px 0 0;font-weight:800;min-height:1.9em}
+#pollStatus.ok{color:var(--mint)}
+#pollStatus.err{color:var(--pink)}
+.cf{position:fixed;z-index:60;pointer-events:none;font-size:22px;animation:fly 1s ease-out forwards}
+@keyframes fly{from{transform:translate(0,0) scale(.4);opacity:1}to{transform:translate(var(--dx),var(--dy)) scale(1.2) rotate(var(--r));opacity:0}}
+@media (prefers-reduced-motion:no-preference){
+  @keyframes gshift{from{background-position:0 0}to{background-position:-200% 0}}
+  @keyframes floaty{50%{transform:translate(30px,-24px) scale(1.12)}}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  @keyframes shine{0%,60%{left:-60%}100%{left:130%}}
+  @keyframes wiggle{0%{transform:scale(1)}30%{transform:scale(1.35) rotate(-12deg)}60%{transform:scale(1.2) rotate(10deg)}100%{transform:scale(1)}}
+  @keyframes tick{from{transform:scale(0)}to{transform:scale(1)}}
+  .gr{animation:gshift 6s linear infinite}
+  .orb.o1{animation:floaty 9s ease-in-out infinite}
+  .orb.o2{animation:floaty 11s ease-in-out infinite reverse}
+  .mq-t{animation:mq 22s linear infinite}
+  .btn:not(.ghost)::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 3.5s ease-in-out infinite;pointer-events:none}
+  .opt input:checked ~ .em{animation:wiggle .5s ease}
+  .opt input:checked ~ .ck::before{animation:tick .25s ease}
+  .list li:nth-child(2){transition-delay:.12s}
+  .list li:nth-child(3){transition-delay:.24s}
+}
+.cm .btn.ghost{margin-inline-start:10px}
+#pollRes{margin-top:6px}
+.res{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.res .rt{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:6px}
+.res .rt .n{margin-inline-start:auto;color:var(--muted);font-weight:800;font-size:14px}
+.res .bar{height:14px;border-radius:99px;background:var(--bg);border:2px solid var(--line);overflow:hidden}
+.res .bar i{display:block;height:100%;width:0;border-radius:99px;background:var(--blue);transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.res li.me .bar i{background:var(--mint)}
+.res li.me .tx::after{content:" ✓ انتخاب شما";color:var(--muted);font-size:13px;font-weight:700}
+@media (prefers-reduced-motion:reduce){.res .bar i{transition:none}}
 </style>
 </head>
 <body>
+<div id="sp" aria-hidden="true"></div>
 <div class="wrap">
   <header>
     <div class="logo">رایان</div>
@@ -112,7 +172,8 @@ html,body{max-width:100%;overflow-x:hidden}
 
   <main>
     <div class="hero">
-      <h1>دنیای فناوری و گیمینگ،<br>هر روز در رایان</h1>
+      <span class="orb o1" aria-hidden="true"></span><span class="orb o2" aria-hidden="true"></span>
+      <h1>دنیای فناوری و گیمینگ،<br>هر روز در <span class="gr">رایان</span></h1>
       <p>کانال رایان در ایتا؛ اخبار و آموزش تکنولوژی، دنیای بازی‌ها و هوش مصنوعی، به زبان ساده و کاربردی.</p>
       <div class="cta">
         <a class="btn" href="https://eitaa.com/rayanchannell" target="_blank" rel="noopener">ورود به کانال</a>
@@ -120,6 +181,8 @@ html,body{max-width:100%;overflow-x:hidden}
       </div>
       <div class="pixels" aria-hidden="true" id="px"></div>
     </div>
+
+    <div class="mq" aria-hidden="true"><div class="mq-t" id="mq"></div></div>
 
     <section>
       <h2>در رایان چه می‌خوانید؟</h2>
@@ -168,6 +231,27 @@ html,body{max-width:100%;overflow-x:hidden}
       </ul>
     </section>
 
+    <section id="poll">
+      <h2>نظرسنجی</h2>
+      <div class="cm poll">
+        <p class="lead">چه نوع پست‌هایی بهتر است در کانال و سایت رایان به اشتراک گذاشته شود؟ (می‌توانید چند مورد انتخاب کنید)</p>
+        <form id="pollForm" novalidate>
+          <div class="opts" role="group" aria-label="نوع پست‌ها">
+          <label class="opt"><input type="checkbox" name="opt" value="آیا می‌دانید"><span class="em" aria-hidden="true">💡</span><span class="tx">آیا می‌دانید</span><span class="ck" aria-hidden="true"></span></label>
+          <label class="opt"><input type="checkbox" name="opt" value="پهپادها"><span class="em" aria-hidden="true">🚁</span><span class="tx">پهپادها</span><span class="ck" aria-hidden="true"></span></label>
+          <label class="opt"><input type="checkbox" name="opt" value="والپیپر"><span class="em" aria-hidden="true">🖼️</span><span class="tx">والپیپر</span><span class="ck" aria-hidden="true"></span></label>
+          <label class="opt"><input type="checkbox" name="opt" value="طنز کامپیوتری"><span class="em" aria-hidden="true">😂</span><span class="tx">طنز کامپیوتری</span><span class="ck" aria-hidden="true"></span></label>
+          <label class="opt"><input type="checkbox" name="opt" value="سایت‌های جالب"><span class="em" aria-hidden="true">🌐</span><span class="tx">سایت‌های جالب</span><span class="ck" aria-hidden="true"></span></label>
+          <label class="opt"><input type="checkbox" name="opt" value="سوالات روزمره کامپیوتری"><span class="em" aria-hidden="true">❓</span><span class="tx">سوالات روزمره کامپیوتری</span><span class="ck" aria-hidden="true"></span></label>
+          </div>
+          <button class="btn" type="submit" id="pollBtn">ثبت نظر</button>
+          <button class="btn ghost" type="button" id="pollView">فقط نتایج را ببینم</button>
+          <p id="pollStatus" role="status" aria-live="polite"></p>
+        </form>
+        <div id="pollRes" hidden></div>
+      </div>
+    </section>
+
     <section id="comments">
       <h2>نظر شما</h2>
       <div class="cm">
@@ -206,7 +290,7 @@ html,body{max-width:100%;overflow-x:hidden}
 </script>
 <script>
 (function(){
-  var KEY='PUT_YOUR_ACCESS_KEY_HERE';
+  var KEY=window.RAYAN_KEY='e70429de-3520-4121-a20d-76305c9e7a03';
   var f=document.getElementById('cmForm'),b=document.getElementById('cmBtn'),st=document.getElementById('cmStatus');
   function say(t,c){st.textContent=t;st.className=c||''}
   f.addEventListener('submit',function(e){
@@ -239,6 +323,102 @@ html,body{max-width:100%;overflow-x:hidden}
     var els=document.querySelectorAll('.topic,.fact,.list li,.cm,.join');
     for(var j=0;j<els.length;j++){els[j].className+=' rv';io.observe(els[j])}
   }catch(e){}
+})();
+</script>
+<script>
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var words=['فناوری','گیمینگ','هوش مصنوعی','پهپادها','والپیپر','طنز کامپیوتری','سایت‌های جالب'],mq=document.getElementById('mq');
+  if(mq){var h='';for(var k=0;k<4;k++)for(var i=0;i<words.length;i++)h+='<span>'+words[i]+'</span>';mq.innerHTML=h}
+  var sp=document.getElementById('sp');
+  if(sp&&!reduce){
+    var busy=false;
+    var upd=function(){var d=document.documentElement,m=d.scrollHeight-d.clientHeight;sp.style.transform='scaleX('+(m>0?Math.min(1,window.scrollY/m):0)+')';busy=false};
+    window.addEventListener('scroll',function(){if(!busy){busy=true;requestAnimationFrame(upd)}},{passive:true});
+    upd();
+  }
+  var f=document.getElementById('pollForm');
+  if(!f)return;
+  var st=document.getElementById('pollStatus'),b=document.getElementById('pollBtn'),vb=document.getElementById('pollView'),
+      res=document.getElementById('pollRes'),boxes=f.querySelectorAll('input[name=opt]'),
+      SK='rayanPoll2',API='https://abacus.jasoncameron.dev/',NS='rayanchannell-poll2',done=false,em=[],n=boxes.length;
+  for(var q=0;q<n;q++)em.push(boxes[q].parentNode.querySelector('.em').textContent);
+  function say(t,c){st.textContent=t;st.className=c||''}
+  function fa(x){return Number(x).toLocaleString('fa-IR')}
+  function call(op,key){
+    return fetch(API+op+'/'+NS+'/'+key).then(function(r){
+      if(!r.ok){if(op==='get')return 0;throw new Error('http')}
+      return r.json();
+    }).then(function(d){return typeof d==='number'?d:(+d.value||0)});
+  }
+  function burst(el){
+    if(reduce)return;
+    var r=el.getBoundingClientRect(),e=['💙','💗','✨','🎮','🤖','🚁'];
+    for(var i=0;i<16;i++){
+      var s=document.createElement('span'),a=Math.random()*Math.PI*2,d=70+Math.random()*90;
+      s.className='cf';s.textContent=e[i%e.length];
+      s.style.left=(r.left+r.width/2)+'px';s.style.top=(r.top+r.height/2)+'px';
+      s.style.setProperty('--dx',Math.cos(a)*d+'px');s.style.setProperty('--dy',(Math.sin(a)*d-40)+'px');s.style.setProperty('--r',(Math.random()*360-180)+'deg');
+      document.body.appendChild(s);
+      (function(x){setTimeout(function(){if(x.parentNode)x.parentNode.removeChild(x)},1100)})(s);
+    }
+  }
+  function show(c,voters,mine){
+    var h='';
+    for(var i=0;i<n;i++){
+      var p=voters>0?Math.min(100,Math.round(c[i]*100/voters)):0;
+      h+='<li'+(mine.indexOf(boxes[i].value)>-1?' class="me"':'')+'><div class="rt"><span aria-hidden="true">'+em[i]+'</span><span class="tx">'+boxes[i].value+'</span><span class="n">'+fa(p)+'٪ · '+fa(c[i])+' رأی</span></div><div class="bar" role="img" aria-label="'+fa(p)+' درصد"><i data-w="'+p+'"></i></div></li>';
+    }
+    res.innerHTML='<ul class="res">'+h+'</ul><p class="note">تعداد شرکت‌کنندگان: '+fa(voters)+' نفر. هر نفر می‌تواند چند مورد را انتخاب کند.</p>'+(done?'':'<button class="btn ghost" type="button" id="pollBack" style="margin-inline-start:0">بازگشت و رأی دادن</button>');
+    f.hidden=true;res.hidden=false;
+    var bk=document.getElementById('pollBack');
+    if(bk)bk.addEventListener('click',function(){res.hidden=true;f.hidden=false;say('')});
+    setTimeout(function(){
+      var bars=res.querySelectorAll('.bar i');
+      for(var j=0;j<bars.length;j++)bars[j].style.width=bars[j].getAttribute('data-w')+'%';
+    },60);
+  }
+  function fetchAll(){
+    var ps=[call('get','voters')];
+    for(var i=0;i<n;i++)ps.push(call('get','opt'+i));
+    return Promise.all(ps);
+  }
+  function view(mine){
+    say('در حال دریافت نتایج…','');
+    return fetchAll().then(function(a){show(a.slice(1),a[0],mine);say('')})
+      .catch(function(){say('نتایج الان در دسترس نیست. کمی بعد دوباره تلاش کنید.','err')});
+  }
+  function lock(vals){
+    done=true;
+    for(var i=0;i<n;i++){if(vals.indexOf(boxes[i].value)>-1)boxes[i].checked=true;boxes[i].disabled=true;boxes[i].parentNode.className+=' dis'}
+    b.disabled=true;b.textContent='نظر شما ثبت شد';
+  }
+  var mine=null;
+  try{var old=localStorage.getItem(SK);if(old)mine=JSON.parse(old)}catch(e){}
+  if(mine){lock(mine);view(mine)}
+  vb.addEventListener('click',function(){vb.disabled=true;view([]).then(function(){vb.disabled=false})});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(done)return;
+    var vals=[];
+    for(var i=0;i<n;i++){if(boxes[i].checked)vals.push(boxes[i].value)}
+    if(!vals.length){say('لطفاً حداقل یک مورد را انتخاب کنید.','err');return}
+    b.disabled=true;vb.disabled=true;say('در حال ثبت…','');
+    var voters=0,ps=[];
+    for(var i=0;i<n;i++){
+      var pick=vals.indexOf(boxes[i].value)>-1;
+      ps.push(pick?call('hit','opt'+i):call('get','opt'+i).catch(function(){return 0}));
+    }
+    Promise.all(ps).then(function(c){
+      return call('hit','voters').then(function(v){voters=v;return c});
+    }).then(function(c){
+      try{localStorage.setItem(SK,JSON.stringify(vals))}catch(x){}
+      done=true;burst(b);show(c,voters,vals);
+    }).catch(function(){
+      say('ثبت نشد. اتصال اینترنت را بررسی کنید و دوباره تلاش کنید.','err');
+      b.disabled=false;vb.disabled=false;
+    });
+  });
 })();
 </script>
 </body>
