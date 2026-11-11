@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0b1020">
+<meta name="theme-color" content="#eef2f8">
 <title>رایان | دنیای دیجیتال به زبان ساده</title>
 <style>
-:root{--bg:#0b1020;--surface:#141b33;--ink:#eef1ff;--muted:#a9b3d6;--blue:#8b9bff;--pink:#ff7ab6;--mint:#3ddcb0;--line:#2a3463;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--bg:#eef2f8;--surface:#ffffff;--ink:#14213d;--muted:#51607d;--blue:#2f5bff;--pink:#e5306f;--mint:#00997a;--line:#d5dcea;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box}
 html,body{max-width:100%;overflow-x:hidden}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,"Segoe UI",Roboto,"Noto Naskh Arabic",Arial,sans-serif;line-height:1.9;font-size:16px}
 .wrap{max-width:900px;margin:0 auto;padding:0 20px}
 header{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
 .logo{font-weight:900;font-size:21px}.logo b{color:var(--pink)}
-.btn{display:inline-block;text-decoration:none;font-weight:800;border-radius:14px;padding:11px 22px;background:var(--blue);color:#0b1020;transition:transform .15s;-webkit-tap-highlight-color:transparent}
+.btn{display:inline-block;text-decoration:none;font-weight:800;border-radius:14px;padding:11px 22px;background:var(--blue);color:#fff;transition:transform .15s;-webkit-tap-highlight-color:transparent}
 .btn:hover{transform:translateY(-2px)}
 .btn:focus-visible,a:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
 .btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
@@ -42,7 +42,7 @@ h2{font-size:26px;margin:0 0 18px;font-weight:900}
 .fact p{margin:0 0 10px;color:var(--muted)}.fact p:last-child{margin:0}
 .steps{display:grid;gap:12px;padding:0;margin:0;list-style:none;counter-reset:s}
 .steps li{counter-increment:s;display:flex;gap:14px;align-items:center;background:var(--surface);border-radius:16px;padding:14px 18px}
-.steps li::before{content:counter(s,persian);flex:none;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#0b1020;font-weight:900;display:grid;place-items:center}
+.steps li::before{content:counter(s,persian);flex:none;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-weight:900;display:grid;place-items:center}
 .card{background:var(--surface);border-radius:22px;padding:24px;border-right:8px solid var(--mint)}
 .card .lead{margin:0 0 14px;color:var(--muted)}
 .chips{display:grid;gap:10px;margin:0 0 16px}
@@ -50,7 +50,7 @@ h2{font-size:26px;margin:0 0 18px;font-weight:900}
 .chip{display:flex;align-items:center;gap:12px;padding:12px 14px;border:2px solid var(--line);border-radius:16px;background:var(--bg);cursor:pointer;font-weight:700;position:relative}
 .chip input{position:absolute;opacity:0;pointer-events:none}
 .chip .em{font-size:24px;line-height:1}.chip .tx{flex:1}
-.chip .ck{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:#0b1020;font-weight:900;font-size:14px}
+.chip .ck{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:#fff;font-weight:900;font-size:14px}
 .chip.on{border-color:var(--mint)}.chip.on .ck{background:var(--mint);border-color:var(--mint)}.chip.on .ck::before{content:"✓"}
 .card button.btn{border:0;cursor:pointer;font:inherit;font-weight:800}
 .card button.btn.ghost{border:2px solid var(--line);margin-inline-start:8px}
@@ -63,9 +63,9 @@ h2{font-size:26px;margin:0 0 18px;font-weight:900}
 .res li.me .bar i{background:var(--mint)}.res li.me .tx::after{content:" ✓ انتخاب شما";color:var(--muted);font-size:13px}
 #pth{margin:0 0 14px;font-weight:800;color:var(--mint)}
 .note{margin:12px 0 0;font-size:14px;color:var(--muted)}
-.join{background:linear-gradient(135deg,#1d2a66,#4a1f55);border-radius:28px;padding:38px 22px;text-align:center;margin:20px 0 36px}
+.join{background:linear-gradient(135deg,#dfe7ff,#ffe1ee);border-radius:28px;padding:38px 22px;text-align:center;margin:20px 0 36px}
 .join h2{margin-bottom:8px}.join p{margin:0 0 20px;color:var(--muted)}
-.join .btn{background:var(--pink);color:#0b1020}
+.join .btn{background:var(--pink);color:#fff}
 footer{padding:16px 0 40px;color:var(--muted);font-size:14px;text-align:center}
 @media(prefers-reduced-motion:no-preference){.hero>*{animation:up .6s both}.hero>*:nth-child(2){animation-delay:.08s}.hero>*:nth-child(3){animation-delay:.16s}.hero>*:nth-child(4){animation-delay:.24s}@keyframes up{from{opacity:0;transform:translateY(14px)}}}
 
